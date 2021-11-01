@@ -5,10 +5,13 @@
 @if(isset($listaCategoria) && count($listaCategoria) > 0)
 <ul>
     @foreach($listaCategoria as $cat)
-    <li>{{ $cat->categoria }}</li>
+    <li>
+        <a href="{{route('categoria_id', ['idcategoria'=> $cat->id])}}">{{ $cat->categoria }}</a>
+    </li>
     @endforeach
 </ul>
 @endif
 
-@include("_ingressos", ['lista' => $lista]) <!-- layout que contém a lista dos ingressos-->
+@include("_ingressos", ['lista' => $lista])
+<!-- layout que contém a lista dos ingressos-->
 @endsection
