@@ -1,8 +1,8 @@
 @if(isset($lista))
 @foreach($lista as $ingresso)
 
-<div class="col-3 mb-lg-3">
-    <div class="card">
+<div class="col-3">
+    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
         <img src="{{asset ($ingresso->foto)}}" alt="">
         <div class="card-body">
             <h5 class="card-title">{{ $ingresso->titulo }}</h5>

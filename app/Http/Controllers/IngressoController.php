@@ -32,6 +32,7 @@ class IngressoController extends Controller
 
         $listaIngressos = $queryIngressos->get();
         $data["lista"] = $listaIngressos;
+        $data["idcategoria"] = $idcategoria;
         $data["listaCategoria"] = $listaCategorias;
         return view("categoria", $data);
     }
