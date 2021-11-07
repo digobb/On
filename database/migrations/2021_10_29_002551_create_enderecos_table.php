@@ -20,10 +20,11 @@ class CreateEnderecosTable extends Migration
             $table->string("cidade");
             $table->string("estado");
             $table->string("cep");
-            $table->string("complemento");
 
-            
             $table->timestamps();
+
+            $table->integer("usuario_id")->unsigned();
+            $table->foreign("usuario_id")->references("id")->on("usuarios")->onDelete("cascade");
         });
     }
 

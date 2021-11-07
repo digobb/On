@@ -18,6 +18,7 @@ class CreateIngressosTable extends Migration
             $table->string("titulo");
             $table->string("descricao");
             $table->string("foto");
+            $table->string("cidade_evento");
             $table->string("local");
             $table->decimal("valor");
             $table->time("horaEvento");

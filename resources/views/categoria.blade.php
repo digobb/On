@@ -1,6 +1,6 @@
 @extends("layout")
 @section("conteudo")
-<h1 class="display-3">Categorias</h1>
+<h1 class="display-3 mb-4">Categorias</h1>
 
 <div class="col-2">
     @if(isset($listaCategoria) && count($listaCategoria) > 0)
@@ -13,8 +13,8 @@
     @endif
 </div>
 
-<div class="col-10">
+
     <!-- layout que contém a lista dos ingressos-->
     @include("_ingressos", ['lista' => $lista])
-</div>
+
 @endsection

@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Endereco extends RModel
 {
-    use HasFactory;
+    protected $table = "enderecos"; //tabela que irá visualizar no bd
+    protected $fillable = ['estado', 'cidade', 'numero', 'logradouro', 'cep'];
 }

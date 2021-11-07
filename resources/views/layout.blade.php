@@ -32,6 +32,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="">Ingressos</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('categoria') }}">Categorias</a>
+                    </li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="{{route('categoria')}}" id="dropdown08" data-bs-toggle="dropdown" aria-expanded="false">Categorias</a>
@@ -48,7 +51,7 @@
                     <a class="nav-link" href="">Cadastrar-se</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href=""><i class="fas fa-shopping-cart"></i></a>
+                    <a class="nav-link" href="{{ route ('ver_carrinho') }}"><i class="fas fa-shopping-cart"></i></a>
                 </li>
             </ul>
         </div>
@@ -58,12 +61,12 @@
 
     <div class="container">
         <div class="row">
-            <!-- Aguarda/espera alguém adicionar algum conteúdo nesta área. --> 
-            @yield("conteudo") 
+            <!-- Aguarda/espera alguém adicionar algum conteúdo nesta área. -->
+            @yield("conteudo")
         </div>
     </div>
 
 </body>
 
 </html>
-
+@extends("footer")
