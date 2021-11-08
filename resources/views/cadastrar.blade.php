@@ -1,4 +1,17 @@
 @extends("layout")
+
+@section("scriptjs")
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.11.2/jquery.mask.min.js" integrity="sha512-Y/GIYsd+LaQm6bGysIClyez2HGCIN1yrs94wUrHoRAD5RSURkqqVQEU6mM51O90hqS80ABFTGtiDpSXd2O05nw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.11.2/jquery.mask.js" integrity="sha512-bwanfE29Vxh7VGuxx44U2WkSG9944fjpYRTC3GDUjh0UJ5FOdCQxMJgKWBnlxP5hHKpFJKmawufWEyr5pvwYVA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  
+   <script>
+        $(function(){
+            //$("#numeroCelular").mask("000.000.000-00") // 0 = valores numéricos
+            $("#numeroCelular").mask("(00) 000000000")
+        });
+    </script>
+@endsection
+
 @section("conteudo")
 <div class="col-12">
     <h1 class="display-3 mb-4">Cadastre-se</h1>
@@ -18,7 +31,7 @@
         </div>
         <div class="mb-3 col-4">
             <label class="form-label">Celular</label>
-            <input type="text" name="celular" class="form-control" id="numeroCelular" aria-describedby="Numero Celular">
+            <input type="text" name="celular" class="form-control" id="numeroCelular" aria-describedby="Numero Celular" placeholder="(54) 999999999">
         </div>
         <div class="mb-3 col-3">
             <label class="form-label">Data Nascimento</label>
@@ -49,7 +62,7 @@
             <input type="password" name="password" class="form-control" id="exampleInputPassword1">
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Cadastrar</button>
+    <button type="submit" class="btn btn-primary" id="butao_cadastrar-se">Cadastrar</button>
     <!-- <a href="">já possuo uma conta.</a> -->
 </form>
 
