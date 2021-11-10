@@ -13,9 +13,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.6.1/font/bootstrap-icons.min.css" integrity="sha512-9a1QYep56cYgIPFq0JYfsh9xRYYmPBxKaD6/ZfVAtplQ6y9ZUSk7GxgC2dmwtxK9T2cGQOxCV6J2Ll51nrvP2w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    @yield("scriptjs") <!-- area para adição dos scripts (mascaras etc...)--> 
-    
+
+    @yield("scriptjs")
+    <!-- area para adição dos scripts (mascaras etc...)-->
+
     <title>ProjetoOn</title>
 </head>
 
@@ -62,14 +63,28 @@
 
 
 
-    <div class="container">
-        <div class="row">
-            <!-- Aguarda/espera alguém adicionar algum conteúdo nesta área. -->
-            @yield("conteudo")
+
+    <div class="row" id="alert-login">
+        @if($message = Session::get("err"))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>😔
+                {{ $message }}</strong> Verifique os dados informados!
+            <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close"> implementar js para fechar o alert-->
+            </button>
         </div>
+        @endif
+        @if($message = Session::get("ok"))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>😀
+                {{ $message }}</strong>
+            </button>
+        </div>
+        @endif
     </div>
 
-</body>
+    <div class="container">
+        <!-- Aguarda/espera alguém adicionar algum conteúdo nesta área. -->
+        @yield("conteudo")
+    </div>
 
-</html>
-@extends("footer")
+    @extends("footer")

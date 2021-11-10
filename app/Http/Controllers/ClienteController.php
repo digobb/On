@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
 use App\Models\Endereco;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use App\Services\ClienteService;
 
 class ClienteController extends Controller
 {
@@ -29,17 +29,15 @@ class ClienteController extends Controller
         //criptografar a senha com padrões do laravel  https://laravel.com/docs/8.x/hashing
         $senha = $request->input("password", "");
         $usuario->password = Hash::make($senha); 
-    
-        try{
-            DB::beginTransaction(); // verificar funcionamento e documentação sobre https://laravel.com/docs/8.x/database
-                $usuario->save();
-                $endereco->usuario_id = $usuario->id;
-                //throw new \Exception("FORÇA A OCORRER O ERRO");
-                $endereco->save();
-            DB::commit();
-        }catch(\Exception $e){//tratar o erro caso ocorra:
-            DB::rollBack(); //cancela a inserção 
-        }
+
+        //instancia o cliente da class ClienteService e passa os dados para a class
+        $clienteService = new ClienteService();
+        $result = $clienteService -> salvarUsuario($usuario, $endereco);
+        //dd($result); 
+        $status = $result["status"];
+        $message = $result["message"];
+        $request->session()->flash($status, $message); //grava na sessão e após será verificado no layout qual menssagem foi apresentada.
+
         return redirect()->route('cadastrar'); //envia o cliente para a tela de cadastrar
     }
 }
