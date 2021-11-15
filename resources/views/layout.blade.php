@@ -52,7 +52,14 @@
             </div>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" id="button-cadastrar-se" href="">Cadastrar-se</a>
+                    <!-- @if(!Auth::user()) -->
+                        <a class="nav-link" href="{{ route ('logar') }}">Logar</a>
+                   <!-- @else-->
+                        <a class="nav-link" href="{{ route ('logout') }}">Logout</a>
+                   <!-- @endif-->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="button-cadastrar-se" href="{{ route('cadastrar') }}">Cadastrar-se</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route ('ver_carrinho') }}"><i class="fas fa-shopping-cart"></i></a>
@@ -61,19 +68,20 @@
         </div>
     </nav>
 
-
-
-
+    @if(\Auth::user())
+    <h1>{{ \Auth::user()->nome }}</h1>
+    @endif
+    
     <div class="row" id="alert-login">
-        @if($message = Session::get("err"))
+        @if($message = Session::get('err'))
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>😔
-                {{ $message }}</strong> Verifique os dados informados!
+                {{ $message }}</strong>
             <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close"> implementar js para fechar o alert-->
             </button>
         </div>
         @endif
-        @if($message = Session::get("ok"))
+        @if($message = Session::get('ok'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>😀
                 {{ $message }}</strong>

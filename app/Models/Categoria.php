@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categoria extends RModel
 {
-    protected $table = "categorias"; //tabela que irá visualizar no bd
+    protected $table = 'categorias'; //tabela que irá visualizar no bd
     protected $fillable = ['categoria'];
 }

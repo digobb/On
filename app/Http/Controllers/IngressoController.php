@@ -54,10 +54,10 @@ class IngressoController extends Controller
 
     public function verCarrinho(Request $request)
     {
-        $carrinho = session('cart', []); //busca o carrinho pela sessão / caso não array vazio
-        $data = ['cart' => $carrinho];
+        $carrinho = session("cart", []); //busca o carrinho pela sessão / caso não array vazio
+        $data = ["cart" => $carrinho];
         
-        return view('carrinho', $data);
+        return view("carrinho", $data);
     }
 
     public function excluirCarrinho($indice, Request $request)
@@ -66,7 +66,7 @@ class IngressoController extends Controller
         if (isset($carrinho[$indice])) {
             unset($carrinho[$indice]); //remove do carrinho 
         }
-        session(['cart' => $carrinho]);
-        return redirect()->route('ver_carrinho');
+        session(["cart" => $carrinho]);
+        return redirect()->route("ver_carrinho");
     }
 }

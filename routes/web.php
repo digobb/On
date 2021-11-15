@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IngressoController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\UsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,12 @@ use App\Http\Controllers\ClienteController;
 */
 
 Route::get('/', [IngressoController::class, 'index'])->name('home');
+
+//login
+Route::match(['get', 'post'], '/logar', [UsuarioController::class, 'logar'])->name('logar');
+//logout
+Route::get('/sair', [UsuarioController::class, 'sair'])->name('sair');
+//cadastro
 Route::get('/cadastrar', [ClienteController::class, 'cadastrar'])->name('cadastrar');
 Route::post('/cliente/cadastrar', [ClienteController::class, 'cadastrarCliente']) -> name('cadastrar_cliente');
 

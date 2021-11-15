@@ -62,7 +62,7 @@
             <input type="password" name="password" class="form-control" id="exampleInputPassword1">
         </div>
     </div>
-    <button type="submit" class="btn btn-primary" id="butao_cadastrar-se">Cadastrar</button>
+    <button type="submit" class="btn btn-primary" id="botao_cad_login">Cadastrar</button>
     <!-- <a href="">já possuo uma conta.</a> -->
 </form>
 

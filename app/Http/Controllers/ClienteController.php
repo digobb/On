@@ -27,7 +27,7 @@ class ClienteController extends Controller
         //$usuario->login = $request->input("login", "");
 
         //criptografar a senha com padrões do laravel  https://laravel.com/docs/8.x/hashing
-        $senha = $request->input("password", "");
+        $senha = $request->input('password');
         $usuario->password = Hash::make($senha); 
 
         //instancia o cliente da class ClienteService e passa os dados para a class
