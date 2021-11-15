@@ -33,6 +33,7 @@ Route::get('/{idingresso}/carrinho/adicionar', [IngressoController::class, 'adic
 Route::get('/carrinho', [IngressoController::class, 'verCarrinho'])->name('ver_carrinho');
 Route::get('/{indice}/excluircarrinho', [IngressoController::class, 'excluirCarrinho'])->name('carrinho_excluir');
 
+Route::post('/carrinho/finalizar', [IngressoController::class, 'finalizar']) -> name('carrinho_finalizar');
 
 
 

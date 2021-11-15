@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Categoria;
 use App\Models\Ingresso;
+use App\Services\VendaService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IngressoController extends Controller
 {
@@ -68,5 +70,19 @@ class IngressoController extends Controller
         }
         session(["cart" => $carrinho]);
         return redirect()->route("ver_carrinho");
+    }
+
+    public function finalizar(Request $request)
+    {   
+        $ingCarrinho = session('cart', []); //todos os ingressos do carrinho que estao nesta sessao.
+        $vendaService = new VendaService();
+        $result = $vendaService -> finalizarVenda($ingCarrinho, Auth::user());
+        
+        if($result["status"] == "ok"){
+            $request()->session()->forget("cart"); //limpa a sessão(itens do carrinho)
+        }
+
+        $request->session()->flash($result["status"], $result["message"]);
+        return redirect()->route('ver_carrinho');
     }
 }
