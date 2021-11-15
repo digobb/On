@@ -12,7 +12,7 @@
             </div>
             <div class="mb-3 col-6">
                 <label for="exampleInputPassword1" class="form-label">Senha</label>
-                <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                <input type="password" name="senha" class="form-control" id="exampleInputPassword1">
             </div>
         </div>
         <button type="submit" class="btn btn-primary" id="botao_cad_login">Logar</button>

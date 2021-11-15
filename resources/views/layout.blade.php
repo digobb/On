@@ -52,11 +52,11 @@
             </div>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <!-- @if(!Auth::user()) -->
+                    
                         <a class="nav-link" href="{{ route ('logar') }}">Logar</a>
-                   <!-- @else-->
-                        <a class="nav-link" href="{{ route ('logout') }}">Logout</a>
-                   <!-- @endif-->
+                  
+                        <a class="nav-link" href="{{ route ('sair') }}">Logout</a>
+                  
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="button-cadastrar-se" href="{{ route('cadastrar') }}">Cadastrar-se</a>
@@ -67,11 +67,6 @@
             </ul>
         </div>
     </nav>
-
-    @if(\Auth::user())
-    <h1>{{ \Auth::user()->nome }}</h1>
-    @endif
-    
     <div class="row" id="alert-login">
         @if($message = Session::get('err'))
         <div class="alert alert-danger alert-dismissible fade show" role="alert">

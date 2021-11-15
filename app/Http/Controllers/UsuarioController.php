@@ -12,10 +12,10 @@ class UsuarioController extends Controller
     {
         $data = [];
         if ($request->isMethod("POST")) { // caso ocorra a tentativa de login
-            $email = $request->input('login');
-            $senha = $request->input('password');
+            $login = $request->input("login");
+            $senha = $request->input("senha");
 
-            $credenciais = ['login' => $email, 'password' => $senha];
+            $credenciais = ['login' => $login, 'password' => $senha];
             //dd($credenciais); //POSSIVEL PROBLEMA ABAIXO NA VERIFICACAO POIS OS DADOS ESTAO CHEGANDO
             if (Auth::attempt($credenciais)) {
                 //dd("logado");
@@ -23,7 +23,7 @@ class UsuarioController extends Controller
             } else {
                 //dd("erro");
                 $request->session()->flash("err", "Usuário ou Senha incorretos!");
-                return redirect()->route('logar');
+                return redirect()->route("logar");
             }
         }
         return view("logar", $data);
