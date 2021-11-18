@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-use Illuminate\Auth\AuthServiceProvider;
 use Illuminate\Support\Facades\Auth;
 
 class UsuarioController extends Controller
@@ -15,11 +13,11 @@ class UsuarioController extends Controller
             $login = $request->input("login");
             $senha = $request->input("senha");
 
-            $credenciais = ['login' => $login, 'password' => $senha];
-            //dd($credenciais); //POSSIVEL PROBLEMA ABAIXO NA VERIFICACAO POIS OS DADOS ESTAO CHEGANDO
-            if (Auth::attempt($credenciais)) {
-                //dd("logado");
-                return redirect()->route('home');
+            $credential = ['login' => $login, 'password' => $senha]; //senha está vindo sem criptografia
+            //dd($credentials); //POSSIVEL PROBLEMA ABAIXO NA VERIFICACAO POIS OS DADOS ESTAO CHEGANDO
+            if (Auth::attempt($credential)) {  
+                //dd($request->session()->all());
+                return redirect()->route("home");
             } else {
                 //dd("erro");
                 $request->session()->flash("err", "Usuário ou Senha incorretos!");

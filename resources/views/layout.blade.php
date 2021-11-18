@@ -51,23 +51,34 @@
                 </ul>
             </div>
             <ul class="navbar-nav">
+                @if(\Auth::user())
                 <li class="nav-item">
-                    
-                        <a class="nav-link" href="{{ route ('logar') }}">Logar</a>
-                  
-                        <a class="nav-link" href="{{ route ('sair') }}">Logout</a>
-                  
+                    <a class="nav-link" href="{{ route ('ver_carrinho') }}"><i class="fas fa-shopping-cart"></i> </a>
                 </li>
+                @endif
+                <li class="nav-item">
+                    @if(!\Auth::user())
+                    <a class="nav-link" href="{{ route ('logar') }}">Logar</a>
+                    @else
+                    <a class="nav-link" href="{{ route ('sair') }}"><i class="fas fa-sign-out-alt"></i></a> <!-- sair -->
+                    @endif
+                </li>
+                @if(!\Auth::user())
                 <li class="nav-item">
                     <a class="nav-link" id="button-cadastrar-se" href="{{ route('cadastrar') }}">Cadastrar-se</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route ('ver_carrinho') }}"><i class="fas fa-shopping-cart"></i></a>
-                </li>
+                @endif
             </ul>
         </div>
     </nav>
     <div class="row" id="alert-login">
+        <!-- caso encontre uma sessão -->
+        @if(\Auth::user())
+        <div class="col-12">
+            <p class="text-right"><i class="fas fa-user"></i> {{ \Auth::user()->nome }}</p>
+        </div>
+        @endif
+
         @if($message = Session::get('err'))
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>😔
@@ -90,4 +101,5 @@
         @yield("conteudo")
     </div>
 
-    @extends("footer")
+
+    

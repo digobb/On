@@ -2,9 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
 use Illuminate\Contracts\Auth\Authenticatable;
 
 
@@ -16,7 +13,7 @@ class Usuario extends RModel implements Authenticatable // https://laravel.com/d
 
     public function getAuthIdentifierName()
     {
-        return $this->getKey();
+        return 'login';
     }
 
     public function getAuthIdentifier()
@@ -36,4 +33,5 @@ class Usuario extends RModel implements Authenticatable // https://laravel.com/d
     public function getRememberTokenName()
     {
     }
+
 }

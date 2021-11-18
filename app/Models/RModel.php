@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class RModel extends Model
 {
     use HasFactory;
-    protected $primaryKey = "id";
+    protected $primaryKey = 'id';
     public $timestamps = true; //criado em e atualizado em
     public $incremeting = true;
     protected $fillable = [];

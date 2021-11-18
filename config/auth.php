@@ -65,6 +65,13 @@ return [
             'model' => App\Models\Usuario::class,
         ],
 
+        'api' => [
+            'driver' => 'token',
+            'provider' => 'users',
+            'hash' => false,
+
+        ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

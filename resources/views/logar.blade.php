@@ -1,6 +1,5 @@
 @extends("layout")
 @section("conteudo")
-
 <div class="col-12">
     <h2 class="display-3 mb-4">Login</h2>
     <form action="{{ route('logar') }}" method="POST">
@@ -18,5 +17,4 @@
         <button type="submit" class="btn btn-primary" id="botao_cad_login">Logar</button>
     </form>
 </div>
-
 @endsection
